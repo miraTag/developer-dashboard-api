@@ -1,62 +1,12 @@
 import express from "express";
-import bundlesRoutes from "./dashboard-service/bundles.js";
-import experiencesRoutes from "./dashboard-service/experience.js";
-import tagsRoutes from "./dashboard-service/tags.js";
-// import trendsDashboardRoutes from "./dashboard-service/trends.js";
-import experimentsRoutes from "./dashboard-service/experiments.js";
 import siteRoutes from "./dashboard-service/site.js";
-import shopperRoutes from "./dashboard-service/shopper-assistant.js";
-import catalogRoutes from "./product-service/catalog.js";
-import productRoutes from "./product-service/products.js";
-import tagRoutes from "./product-service/tags.js";
-import templateRoutes from "./dashboard-service/templates.js";
-import pageRoutes from "./dashboard-service/pages.js";
-import apiUsageRoutes from "./reporting-service/api_usage.js";
-import trendsRoutes from "./reporting-service/api_trends.js";
-import filterRoutes from "./dashboard-service/filters.js";
-import configurationRoutes from "./dashboard-service/configurations.js";
-import notificationRoutes from "./notifications/notifications.js";
-import zendeskRoutes from "./zendesk-service/tickets.js";
-import assistantExperiencesRoutes from "./dashboard-service/assistant-experience.js";
-import assistantExperimentsRoutes from "./dashboard-service/assistant-experiments.js";
 import logsRoute from "./logs-service/logs-api.js";
-import recsExperienceOutputRoutes from "./rest-api-service/recs-experience-api.js";
-import powerAnalysisRoutes from "./dashboard-service/powerAnalysis.js";
 import userRoutes from "./user-service/user.js";
-import externalDataServiceRoutes from "./external-data-service/external-data-api.js";
-import recsAnalyticsRoutes from "./reporting-service/api_recs.js";
-
-import profileRoutes from "./profile-service/profiles.js";
 
 const proxyRouter = express.Router();
 
-proxyRouter.use("", bundlesRoutes);
-proxyRouter.use("", experiencesRoutes);
-proxyRouter.use("", experimentsRoutes);
 proxyRouter.use("", siteRoutes);
-proxyRouter.use("", shopperRoutes);
-proxyRouter.use("", catalogRoutes);
-proxyRouter.use("", productRoutes);
-proxyRouter.use("", tagRoutes);
-proxyRouter.use("", templateRoutes);
-proxyRouter.use("", pageRoutes);
-proxyRouter.use("", apiUsageRoutes);
-proxyRouter.use("", filterRoutes);
-proxyRouter.use("", tagsRoutes);
-proxyRouter.use("", trendsRoutes);
-// proxyRouter.use("", trendsDashboardRoutes);
-proxyRouter.use("", notificationRoutes);
-proxyRouter.use("", zendeskRoutes);
-proxyRouter.use("", configurationRoutes);
-proxyRouter.use("", assistantExperiencesRoutes);
-proxyRouter.use("", assistantExperimentsRoutes);
 proxyRouter.use("", logsRoute);
-proxyRouter.use("", recsExperienceOutputRoutes);
-proxyRouter.use("", powerAnalysisRoutes);
 proxyRouter.use("", userRoutes);
-proxyRouter.use("", externalDataServiceRoutes);
-proxyRouter.use("", recsAnalyticsRoutes);
-
-proxyRouter.use("", profileRoutes);
 
 export default proxyRouter;

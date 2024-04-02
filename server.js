@@ -10,7 +10,7 @@ import proxyRoutes from "./routes/proxy.js";
 import "./auth/auth.mjs";
 import { writeError } from "./logger.mjs";
 import { DEPLOYMENT_ID } from "./config.mjs";
-import { sequelize } from "./models/index.js";
+// import { sequelize } from "./models/index.js";
 
 const corsSettings = {
   credentials: true,
@@ -52,22 +52,22 @@ app.use(
   proxyRoutes
 );
 
-(async () => {
-  if (process.env.ENV) {
-    try {
-      await sequelize
-        .sync()
-        .then(() => {
-          console.log("Synced DB");
-        })
-        .catch((err) => {
-          writeError("Failed to sync db: " + err.message);
-        });
-    } catch (error) {
-      writeError("DB Connection problem");
-    }
-  }
-})();
+// (async () => {
+//   if (process.env.ENV) {
+//     try {
+//       await sequelize
+//         .sync()
+//         .then(() => {
+//           console.log("Synced DB");
+//         })
+//         .catch((err) => {
+//           writeError("Failed to sync db: " + err.message);
+//         });
+//     } catch (error) {
+//       writeError("DB Connection problem");
+//     }
+//   }
+// })();
 
 app.get("/api/check-health", (req, res) => {
   res.status(200);

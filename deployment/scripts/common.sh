@@ -43,16 +43,16 @@ if [ "${RES_ENV}" = "true" ]; then
 
     export ENV
     export JWT_SECRET=$(aws secretsmanager get-secret-value --secret-id "$ENV/developer-dashboard-api/jwt" --region=$REGION --query SecretString --output text)
-    DBKEY=
-    case "$ENV_TAG_VALUE" in
-    qa)
-        DBKEY="rds!db-c758fdc4-60d8-4e6b-be7e-1f95b4b6470b"
-        ;;
-    prd | prod | production)
-        DBKEY="rds!db-6496c296-6b26-44c7-8dec-52b24fe1c966"
-        ;;
-    esac
+    # DBKEY=
+    # case "$ENV_TAG_VALUE" in
+    # qa)
+    #     DBKEY="rds!db-c758fdc4-60d8-4e6b-be7e-1f95b4b6470b"
+    #     ;;
+    # prd | prod | production)
+    #     DBKEY="rds!db-6496c296-6b26-44c7-8dec-52b24fe1c966"
+    #     ;;
+    # esac
 
-    export DB_CONNECTION=$(aws secretsmanager get-secret-value --secret-id "$DBKEY" --region=$REGION --query SecretString --output text)
+    # export DB_CONNECTION=$(aws secretsmanager get-secret-value --secret-id "$DBKEY" --region=$REGION --query SecretString --output text)
     export DEPLOYMENT_ID=$DEPLOYMENT_ID
 fi
