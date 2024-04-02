@@ -1,0 +1,41 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /tmp/developer-dashboard-api
+
+permissions:
+  - object: /home/developer-dashboard/developer-dashboard-api
+    owner: developer-dashboard
+    group: developer-dashboard
+
+  - object: /tmp
+    pattern: "developer-dashboard-api"
+    owner: developer-dashboard
+    group: developer-dashboard
+    type:
+      - directory
+
+  - object: /tmp/developer-dashboard-api
+    owner: developer-dashboard
+    group: developer-dashboard
+
+hooks:
+  ApplicationStop:
+    - location: deployment/scripts/stop.sh
+      timeout: 20
+      runas: developer-dashboard
+
+  BeforeInstall:
+    - location: deployment/scripts/preinstall.sh
+      runas: developer-dashboard
+
+  AfterInstall:
+    - location: deployment/scripts/postinstall.sh
+      runas: developer-dashboard
+
+  ApplicationStart:
+    - location: deployment/scripts/start.sh
+      timeout: 20
+      runas: developer-dashboard
